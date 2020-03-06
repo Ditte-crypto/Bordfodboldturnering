@@ -11,13 +11,27 @@ public class Match {
     private String result;
     private String type; //type af kamp
     private int[] score; //team1 mål,team2 mål
+    private static int matchcount;
 
     public Match(){
+        matchcount++;
         this.id = nextId;
         nextId++;
     }
 
+    @Override
+    public String toString() {
+        return "Match: " +
+                "time=" + time +
+                ", team1=" + team1 +
+                ", team2=" + team2 +
+                ", id=" + id +
+                '}';
+    }
     //gettere
+
+
+
 
     public LocalDateTime getTime() {
         return time;
@@ -52,6 +66,12 @@ public class Match {
     }
 
     //settere
+
+
+    public void setTeams(Team team1,  Team team2) {
+        this.team1 = team1;
+        this.team2 = team2;
+    }
 
     public void setTime(LocalDateTime time) {
         this.time = time;
